@@ -2,7 +2,7 @@
 if __name__ == "__main__":
     import sys
 
-    # sys.argv[0] is the script name, so subtract 1 for the actual arguments count
+    # sys.argv[0] is the script name, subtract 1 for actual count
     count = len(sys.argv) - 1
 
     if count == 0:
@@ -12,6 +12,5 @@ if __name__ == "__main__":
     else:
         print("{} arguments:".format(count))
 
-    # Loop through arguments starting from index 1
     for i in range(1, count + 1):
         print("{}: {}".format(i, sys.argv[i]))
