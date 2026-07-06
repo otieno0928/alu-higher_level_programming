@@ -4,7 +4,7 @@ import sys
 
 
 def safe_print_integer_err(value):
-    """Prints an integer with "{:d}".format(), otherwise prints error to stderr."""
+    """Prints an integer with "{:d}".format()."""
     try:
         print("{:d}".format(value))
         return True

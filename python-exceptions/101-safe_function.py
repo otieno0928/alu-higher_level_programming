@@ -4,7 +4,7 @@ import sys
 
 
 def safe_function(fct, *args):
-    """Executes a function safely and captures standard exceptions to stderr."""
+    """Executes a function safely and captures standard exceptions."""
     try:
         return fct(*args)
     except Exception as e:
