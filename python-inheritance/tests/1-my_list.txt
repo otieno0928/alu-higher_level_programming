@@ -1,15 +1,49 @@
 The ``1-my_list`` module
+========================
 
 Using ``MyList``:
 
     >>> MyList = __import__('1-my_list').MyList
+
+Docstrings:
+    >>> len(__import__('1-my_list').__doc__) > 0
+    True
+    >>> len(MyList.__doc__) > 0
+    True
+    >>> len(MyList.print_sorted.__doc__) > 0
+    True
+
+Testing empty list:
+    >>> empty_list = MyList()
+    >>> print(empty_list)
+    []
+    >>> empty_list.print_sorted()
+    []
+
+Testing basic sorted elements:
     >>> my_list = MyList()
     >>> my_list.append(1)
     >>> my_list.append(4)
     >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
     >>> print(my_list)
-    [1, 4, 2]
+    [1, 4, 2, 3, 5]
     >>> my_list.print_sorted()
-    [1, 2, 4]
+    [1, 2, 3, 4, 5]
     >>> print(my_list)
-    [1, 4, 2]
+    [1, 4, 2, 3, 5]
+
+Testing unsorted list with negative numbers:
+    >>> neg_list = MyList()
+    >>> neg_list.append(-10)
+    >>> neg_list.append(1)
+    >>> neg_list.append(-2)
+    >>> neg_list.append(3)
+    >>> neg_list.append(-4)
+    >>> print(neg_list)
+    [-10, 1, -2, 3, -4]
+    >>> neg_list.print_sorted()
+    [-10, -4, -2, 1, 3]
+    >>> print(neg_list)
+    [-10, 1, -2, 3, -4]
