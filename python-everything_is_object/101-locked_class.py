@@ -3,5 +3,6 @@
 
 
 class LockedClass:
-    """Prevents user from dynamically creating attributes except 'first_name'."""
+    """Prevents setting attributes other than 'first_name'."""
+
     __slots__ = ["first_name"]
