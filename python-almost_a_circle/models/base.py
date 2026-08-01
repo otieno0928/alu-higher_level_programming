@@ -80,7 +80,9 @@ class Base:
             if list_objs is not None:
                 for obj in list_objs:
                     if cls.__name__ == "Rectangle":
-                        writer.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                        writer.writerow(
+                            [obj.id, obj.width, obj.height, obj.x, obj.y]
+                        )
                     elif cls.__name__ == "Square":
                         writer.writerow([obj.id, obj.size, obj.x, obj.y])
 
@@ -98,8 +100,19 @@ class Base:
                     continue
                 row = [int(val) for val in row]
                 if cls.__name__ == "Rectangle":
-                    d = {'id': row[0], 'width': row[1], 'height': row[2], 'x': row[3], 'y': row[4]}
+                    d = {
+                        'id': row[0],
+                        'width': row[1],
+                        'height': row[2],
+                        'x': row[3],
+                        'y': row[4]
+                    }
                 elif cls.__name__ == "Square":
-                    d = {'id': row[0], 'size': row[1], 'x': row[2], 'y': row[3]}
+                    d = {
+                        'id': row[0],
+                        'size': row[1],
+                        'x': row[2],
+                        'y': row[3]
+                    }
                 instances.append(cls.create(**d))
         return instances
