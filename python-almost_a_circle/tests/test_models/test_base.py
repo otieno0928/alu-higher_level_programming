@@ -3,6 +3,8 @@
 import os
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase(unittest.TestCase):
@@ -12,7 +14,7 @@ class TestBase(unittest.TestCase):
         Base._Base__nb_objects = 0
 
     def tearDown(self):
-        for filename in ["Rectangle.json", "Square.json", "Base.json"]:
+        for filename in ["Rectangle.json", "Square.json", "Base.json", "Rectangle.csv", "Square.csv"]:
             if os.path.exists(filename):
                 os.remove(filename)
 
@@ -67,6 +69,26 @@ class TestBase(unittest.TestCase):
         """Test of Base.from_json_string('[{ "id": 89 }]') returning a list exists"""
         res = Base.from_json_string('[{"id": 89}]')
         self.assertIsInstance(res, list)
+
+    def test_save_to_file_csv_rectangle(self):
+        """Test save_to_file_csv for Rectangle"""
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        r2 = Rectangle(2, 4, 0, 0, 2)
+        Rectangle.save_to_file_csv([r1, r2])
+        res = Rectangle.load_from_file_csv()
+        self.assertEqual(len(res), 2)
+        self.assertEqual(res[0].id, 1)
+        self.assertEqual(res[1].id, 2)
+
+    def test_save_to_file_csv_square(self):
+        """Test save_to_file_csv for Square"""
+        s1 = Square(5, 0, 0, 1)
+        s2 = Square(7, 9, 1, 2)
+        Square.save_to_file_csv([s1, s2])
+        res = Square.load_from_file_csv()
+        self.assertEqual(len(res), 2)
+        self.assertEqual(res[0].id, 1)
+        self.assertEqual(res[1].id, 2)
 
 
 if __name__ == "__main__":
