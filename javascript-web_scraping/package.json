@@ -1,0 +1,16 @@
+{
+  "name": "javascript-web_scraping",
+  "version": "1.0.0",
+  "description": "![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript&logoColor=black) ![NodeJS](https://img.shields.io/badge/Node.js-14.x-green?style=for-the-badge&logo=node.js&logoColor=white)",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
