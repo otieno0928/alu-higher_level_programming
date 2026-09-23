@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 const count = process.argv.length - 2;
 
 if (count === 0) {
